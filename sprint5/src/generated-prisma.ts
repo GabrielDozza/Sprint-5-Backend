@@ -1,0 +1,39 @@
+/* Prisma Client Mock */
+
+export class PrismaClient {
+  user: any;
+  
+  constructor() {
+    this.user = {
+      create: async (data: any) => {
+        console.log('User created:', data);
+        return { id: 1, ...data };
+      },
+      findMany: async () => {
+        console.log('Finding all users');
+        return [];
+      },
+      findUnique: async (where: any) => {
+        return null;
+      },
+      update: async (data: any) => {
+        return data;
+      },
+      delete: async (where: any) => {
+        return null;
+      },
+    };
+  }
+  
+  $connect = async () => {
+    console.log('Prisma connected');
+  };
+  
+  $disconnect = async () => {
+    console.log('Prisma disconnected');
+  };
+}
+
+export const Prisma = {};
+
+export default PrismaClient;
