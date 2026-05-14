@@ -1,4 +1,3 @@
-import React from "react";
 import { RiGroupLine } from "react-icons/ri";
 import { MdLogout } from "react-icons/md";
 import { useLocation, useNavigate } from "react-router-dom";

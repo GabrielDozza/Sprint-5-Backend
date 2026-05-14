@@ -15,7 +15,7 @@ const usePlaceList = () => {
     };
 
     fetchData();
-  }, []);
+  }, [getPlaces]);
 
   const handleCreateClick = () => {
     setIsCreatePlaceModalOpen(true);

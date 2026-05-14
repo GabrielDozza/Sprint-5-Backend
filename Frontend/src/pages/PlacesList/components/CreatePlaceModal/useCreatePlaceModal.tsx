@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
-import { PlaceNoId } from "../../../hooks/usePlaceAPI";
+import { useEffect, useMemo, useState } from "react";
+import { PlaceNoId } from "../../../../hooks/usePlaceAPI";
 
 const useCreatePlaceModal = (
   onClose: () => void,
   onCreatePlace: (user: PlaceNoId) => void,
   isOpen: boolean,
 ) => {
-  const initialState = [
+  const initialState = useMemo(() => [
     {
       label: "Descrição",
       placeholder: "Nome do local",
@@ -23,13 +23,13 @@ const useCreatePlaceModal = (
       max: 5,
       min: 1,
     },
-  ];
+  ], []);
 
   const [fields, setFields] = useState(initialState);
 
   useEffect(() => {
     setFields(initialState);
-  }, [isOpen]);
+  }, [isOpen, initialState]);
 
   const handleChange = (key: string, value: string) => {
     setFields((prev) =>

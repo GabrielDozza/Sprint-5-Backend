@@ -30,7 +30,7 @@ const AllowAcess = () => {
       setPlaces(data);
     };
     fetchData();
-  }, []);
+  }, [getPlaces]);
 
   useEffect(() => {
     if (selectedPlace) {
@@ -57,7 +57,7 @@ const AllowAcess = () => {
       }
     };
     fetchData();
-  }, [scanID]);
+  }, [scanID, getUserById, selectedPlace]);
 
   const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selected = places.find(

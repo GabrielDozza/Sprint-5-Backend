@@ -1,5 +1,7 @@
 {
   "compilerOptions": {
+    "types": ["node", "jest"],
+    "ignoreDeprecations": "6.0",
     "module": "commonjs",
     "target": "ES2023",
     "lib": ["ES2023"],
@@ -16,10 +18,11 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "declaration": true,
-    "decorators": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "sourceMap": true,
     "incremental": true
-  }
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
 }

@@ -39,7 +39,7 @@ const useEditPlaceModal = (
         value: placeData?.acessLevel || "",
       },
     ]);
-  }, [isOpen]);
+  }, [isOpen, fields, placeData?.acessLevel, placeData?.description]);
 
   const handleChange = (key: string, value: string) => {
     setFields((prev) =>

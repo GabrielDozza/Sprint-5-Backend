@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { NewUser } from "../../UserList";
 import useGeneralFunctions from "../../../../hooks/useGeneralFunctions";
 import useAWSAPI from "../../../../hooks/useAWSAPI";
@@ -13,7 +13,7 @@ const useCreateUserModal = (
   const { isValidEmail } = useGeneralFunctions();
   const { changeImageSize } = useImage();
 
-  const initialState = [
+  const initialState = useMemo(() => [
     {
       label: "Nome",
       placeholder: "Nome",
@@ -51,7 +51,7 @@ const useCreateUserModal = (
       initialValueKey: "confirmPassword",
       value: "",
     },
-  ];
+  ], []);
 
   const [fields, setFields] = useState(initialState);
   const [isValidCreateUser, setIsValidCreateUser] = useState(false);
@@ -60,7 +60,7 @@ const useCreateUserModal = (
   useEffect(() => {
     setFields(initialState);
     setImageLink(null);
-  }, [isOpen]);
+  }, [isOpen, initialState]);
 
   useEffect(() => {
     const isValid = fields.every((field) => field.value !== "");
@@ -68,7 +68,7 @@ const useCreateUserModal = (
     setIsValidCreateUser(
       !isValid || !isValidEmail(fields[1].value) || !arePasswordsEqual,
     );
-  }, [fields]);
+  }, [fields, isValidEmail]);
 
   const handleChange = (key: string, value: string) => {
     setFields((prev) =>
