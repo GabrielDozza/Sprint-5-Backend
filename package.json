@@ -1,8 +1,9 @@
 {
   "prisma": {
-    "schema": "prisma/schema.prisma"
+    "schema": "Backend/prisma/schema.prisma"
   },
   "devDependencies": {
+    "@types/node": "^25.9.0",
     "prisma": "^5.22.0"
   },
   "dependencies": {
