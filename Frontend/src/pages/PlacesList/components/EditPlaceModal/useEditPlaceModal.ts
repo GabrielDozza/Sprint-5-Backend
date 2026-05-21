@@ -29,17 +29,17 @@ const useEditPlaceModal = (
   const [fields, setFields] = useState(initialState);
 
   useEffect(() => {
-    setFields([
-      {
-        ...fields[0],
-        value: placeData?.description || "",
-      },
-      {
-        ...fields[1],
-        value: placeData?.acessLevel || "",
-      },
-    ]);
-  }, [isOpen, fields, placeData?.acessLevel, placeData?.description]);
+  setFields([
+    {
+      ...initialState[0],
+      value: placeData?.description || "",
+    },
+    {
+      ...initialState[1],
+      value: placeData?.acessLevel || "",
+    },
+  ]);
+  }, [isOpen, placeData]);
 
   const handleChange = (key: string, value: string) => {
     setFields((prev) =>

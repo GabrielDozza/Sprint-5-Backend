@@ -6,7 +6,6 @@ export class AuthService {
   constructor(private prisma: PrismaService) {}
 
   async login(email: string, password: string) {
-    console.log(process.cwd());
   
     const users = await this.prisma.user.findMany();
     console.log(users);
