@@ -2,7 +2,9 @@
 import { useState } from "react";
 
 const useAuth = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(
+  !!localStorage.getItem("token"),
+  );
   const [token, setToken] = useState<string | null>(
     localStorage.getItem("token"),
   );

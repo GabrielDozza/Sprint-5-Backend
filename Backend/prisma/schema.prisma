@@ -9,7 +9,7 @@ generator client {
 
 datasource db {
   provider = "sqlite"
-  url      = env("DATABASE_URL")
+  url      = "file:C:/Users/genzo/OneDrive/Documentos/Grupo de estudos AGES/Sprint5/Backend/prisma/dev.db"
 }
 
 model User {
